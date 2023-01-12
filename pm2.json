@@ -1,0 +1,13 @@
+{
+  "apps": [
+    {
+      "name": "stress",
+      "script": "index.js",
+      "instances": 20,
+      "exec_mode": "cluster",
+      "watch": false,
+      "merge_logs": true,
+      "cwd": "/home/viniciustrainotti/projects/aurora-v2-stress"
+    }
+  ]
+}
