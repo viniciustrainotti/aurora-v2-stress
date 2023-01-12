@@ -4,7 +4,7 @@ const pass = 'postgrestest';
 const hostWrite = '';
 const hostRead = '';
 const port = '5432';
-const db = 'postgres';
+const db = 'test';
 
 import postgres from 'postgres';
 
@@ -20,24 +20,24 @@ const sqlReader = postgres(`postgres://${user}:${pass}@${hostRead}:${port}/${db}
 
         console.log('run');
 
-        let campo1 = 'Lorem';
-        let campo2 = 'ipsum';
+        let column1 = 'Lorem';
+        let column2 = 'ipsum';
 
         await sqlWriter`
-            INSERT INTO stress (campo1, campo2) VALUES (${ campo1 }, ${ campo2 })
-            returning campo1 campo2
+            INSERT INTO stress (column1, column2) VALUES (${ column1 }, ${ column2 })
+            returning column1 column2
           `
 
         await sqlReader`
             SELECT
-                campo1,
+                column1,
                 degrees(id / 0.5),
                 log(id / 0.1),
                 sqrt(id),
                 exp(sqrt(id))
             from
                 stress
-            ORDER BY campo1 ASC
+            ORDER BY column1 ASC
             LIMIT 100
           `
 
